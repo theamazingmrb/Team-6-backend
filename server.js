@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 // SETUP MONGOOSE
 const db = require('./models/index')
 const Role = db.role
-const dbURI = 'mongodb://admin:superpassword@cluster0-shard-00-00.meotx.mongodb.net:27017,cluster0-shard-00-01.meotx.mongodb.net:27017,cluster0-shard-00-02.meotx.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-c4m4vq-shard-0&authSource=admin&retryWrites=true&w=majority'
-// const dbURI = process.env.MONGODB_URI || `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
+// const dbURI = 'mongodb://admin:superpassword@cluster0-shard-00-00.meotx.mongodb.net:27017,cluster0-shard-00-01.meotx.mongodb.net:27017,cluster0-shard-00-02.meotx.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-c4m4vq-shard-0&authSource=admin&retryWrites=true&w=majority'
+const dbURI = process.env.MONGODB_URI || `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
 
 db.mongoose
     .connect(dbURI,{
